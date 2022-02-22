@@ -1,5 +1,15 @@
 # Getting Started with Create React App
 
+## Project's Link
+
+[Task](https://docs.google.com/document/d/1dGCnElvcDihpt8hjIj4Vn-KrHsz_tqaJDPftGoN6o9k/edit)
+
+[Demo](https://drive.google.com/file/d/1WqpFVciQNjmlYAa-LHI_fQqPbioZTE69/view?usp=sharing)
+
+[GitHub Pages](https://nikolaylemehov.github.io/j01/)
+
+[Repository](https://github.com/NikolayLemehov/j01)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

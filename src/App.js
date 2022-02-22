@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Output from "./components/Output";
+import TileList from "./components/TileList";
+import styled from "styled-components";
+import AdoptedGridRow from "./components/AdoptedGridRow";
+
+const Title = styled.h1`
+  text-align: center;
+`
+
 
 function App() {
+  const [list, setList] = useState([4, 4, 5, 3, 3, 4, 5]);
+  const onClick = () => {
+    setList((prevState) => {
+      return [...prevState, 1]
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Title>Test application</Title>
+      <Output/>
+      <AdoptedGridRow>
+        <button onClick={onClick}>+</button>
+        something: {list}
+      </AdoptedGridRow>
+      <TileList list={list}/>
     </div>
   );
 }
