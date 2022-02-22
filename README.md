@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-## Project's Link
+## Project's Links
 
 [Task](https://docs.google.com/document/d/1dGCnElvcDihpt8hjIj4Vn-KrHsz_tqaJDPftGoN6o9k/edit)
 
