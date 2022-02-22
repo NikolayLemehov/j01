@@ -19,7 +19,10 @@ function App() {
 
   return (
     <div className='container'>
-      <Title>Test application</Title>
+      <AdoptedGridRow>
+        <Title>Test application</Title>
+        <a href="https://github.com/NikolayLemehov/j01" target="_blank" rel="nofollow noopener noreferrer">GitHub Repository</a>
+      </AdoptedGridRow>
       <Output/>
       <AdoptedGridRow>
         <button onClick={onClick}>+</button>
