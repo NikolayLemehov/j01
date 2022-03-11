@@ -25,6 +25,12 @@ function App() {
       return arr;
     })
   };
+  const onClickAddTile = () => {
+    console.log('click')
+    setList((prevState) => {
+      return [...prevState, {value: 1, id: nanoid()}]
+    });
+  };
 
   return (
     <div className='container'>
@@ -40,6 +46,7 @@ function App() {
       <TileList
         list={list}
         removeTile={onRemoveTile}
+        addTile={onClickAddTile}
       />
     </div>
   );

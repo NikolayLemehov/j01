@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Tile from "./Tile/Tile";
 import styled from "styled-components";
+import AddTileBtn from "./AddTileBtn";
 
 const StyledTileList = styled.div`
   display: grid;
@@ -22,6 +23,7 @@ const TileList = (props) => {
           removeTile={props.removeTile}
         />
       })}
+      <AddTileBtn addTile={props.addTile}/>
     </StyledTileList>
   );
 };

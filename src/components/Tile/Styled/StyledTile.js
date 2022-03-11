@@ -8,6 +8,6 @@ export const StyledTile = styled.div`
   border: 1px solid greenyellow;
   border-radius: 5px;
   overflow: hidden;
-  grid-column: span ${props => props.isBig ? '2' : '1'};
-  grid-row: span ${props => props.isBig ? '2' : '1'};
+  grid-column: span ${({isBig}) => isBig ? '2' : '1'};
+  grid-row: span ${({isBig}) => isBig ? '2' : '1'};
 `
