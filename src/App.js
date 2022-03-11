@@ -10,11 +10,13 @@ const Title = styled.h1`
 `
 const defaultValueList = [4, 4, 5, 3, 3, 4, 5];
 const defaultList = defaultValueList.map((it) => ({value: it, id: nanoid()}))
+const findRandomInteger = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
+
 function App() {
   const [list, setList] = useState(() => defaultList);
   const onClick = () => {
     setList((prevState) => {
-      return [...prevState, {value: 1, id: nanoid()}]
+      return [...prevState, {value: findRandomInteger(1, 5), id: nanoid()}]
     });
   }
   const onRemoveTile = (data) => {
@@ -26,9 +28,8 @@ function App() {
     })
   };
   const onClickAddTile = () => {
-    console.log('click')
     setList((prevState) => {
-      return [...prevState, {value: 1, id: nanoid()}]
+      return [...prevState, {value: findRandomInteger(1, 5), id: nanoid()}]
     });
   };
 
