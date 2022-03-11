@@ -1,5 +1,5 @@
-import React from 'react';
-import Tile from "./Tile";
+import React, {useState} from 'react';
+import Tile from "./Tile/Tile";
 import styled from "styled-components";
 
 const StyledTileList = styled.div`
@@ -12,11 +12,15 @@ const StyledTileList = styled.div`
 `
 
 const TileList = (props) => {
-  console.log(props.list)
   return (
     <StyledTileList>
       {props.list.map((it, i) => {
-        return <Tile key={i} text={it}/>
+        return <Tile
+          key={it.id}
+          id={it.id}
+          text={it.value}
+          removeTile={props.removeTile}
+        />
       })}
     </StyledTileList>
   );

@@ -3,19 +3,28 @@ import Output from "./components/Output";
 import TileList from "./components/TileList";
 import styled from "styled-components";
 import AdoptedGridRow from "./components/AdoptedGridRow";
+import {nanoid} from "nanoid";
 
 const Title = styled.h1`
   text-align: center;
 `
-
-
+const defaultValueList = [4, 4, 5, 3, 3, 4, 5];
+const defaultList = defaultValueList.map((it) => ({value: it, id: nanoid()}))
 function App() {
-  const [list, setList] = useState([4, 4, 5, 3, 3, 4, 5]);
+  const [list, setList] = useState(() => defaultList);
   const onClick = () => {
     setList((prevState) => {
-      return [...prevState, 1]
+      return [...prevState, {value: 1, id: nanoid()}]
     });
   }
+  const onRemoveTile = (data) => {
+    setList((prevState) => {
+      const arr = [...prevState];
+      const index = arr.findIndex(it => data.id === it.id)
+      arr.splice(index, 1);
+      return arr;
+    })
+  };
 
   return (
     <div className='container'>
@@ -26,9 +35,12 @@ function App() {
       <Output/>
       <AdoptedGridRow>
         <button onClick={onClick}>+</button>
-        something: {list}
+        something: {list.map(it => it.value)}
       </AdoptedGridRow>
-      <TileList list={list}/>
+      <TileList
+        list={list}
+        removeTile={onRemoveTile}
+      />
     </div>
   );
 }
