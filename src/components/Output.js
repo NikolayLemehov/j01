@@ -7,11 +7,11 @@ const StyledOutput = styled.div`
   background-color: lightgrey;
 `
 
-const Output = () => {
+const Output = (props) => {
   return (
     <AdoptedGridRow>
       <StyledOutput>
-        dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+        {props.text}
       </StyledOutput>
     </AdoptedGridRow>
   );

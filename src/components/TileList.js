@@ -15,7 +15,7 @@ const StyledTileList = styled.div`
 const TileList = (props) => {
   return (
     <StyledTileList>
-      {props.list.map((it, i) => {
+      {props.list.map((it) => {
         return <Tile
           key={it.id}
           id={it.id}
