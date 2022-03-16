@@ -9,7 +9,7 @@ const Tile = (props) => {
     setIsBig((prevState => !prevState))
   };
   const onClickCloseBtn = () => {
-    props.removeTile(props)
+    props.removeTile(props.id)
   };
   return (
     <StyledTile isBig={isBig}>
