@@ -42,19 +42,19 @@ function App() {
     })
   };
   const onClickAddTile = () => {
-    console.log('onClickAddTile')
+    // console.log('onClickAddTile')
+    const value = findRandomInteger(1, 5);
+    const intervalId = setInterval(() => {
+      setText((prevValue) => {
+        const valueLength = String(value).length;
+        return prevValue.length + valueLength <= maxTextLength
+          ? `${prevValue}${value}`
+          : `${prevValue.slice(valueLength)}${value}`;
+      });
+    }, value * 1000);
     setList((prevState) => {
-      const value = findRandomInteger(1, 5);
-      console.log('setList add')
-      const intervalId = setInterval(() => {
-        setText((prevValue) => {
-          const valueLength = String(value).length;
-          return prevValue.length + valueLength <= maxTextLength
-            ? `${prevValue}${value}`
-            : `${prevValue.slice(valueLength)}${value}`;
-        });
-      }, value * 1000);
-      console.log(intervalId)
+      // console.log('setList add')
+      // console.log(intervalId)
       return [...prevState, {value, id: nanoid(), intervalId}]
     });
   };
@@ -70,7 +70,7 @@ function App() {
       />
       <AdoptedGridRow>
         <button onClick={onClickAddTile}>+</button>
-        something: {list.map(it => it.value)}
+        short list: {list.map(it => it.value)}
       </AdoptedGridRow>
       <TileList
         list={list}
