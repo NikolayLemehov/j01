@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {TRANS_300} from "../../../variables";
 
 export const StyledBlockBtn = styled.div`
   position: absolute;
@@ -8,5 +9,9 @@ export const StyledBlockBtn = styled.div`
   left: 0;
   display: flex;
   justify-content: center;
+  border: 1px solid greenyellow;
+  border-radius: 10px;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
 `
