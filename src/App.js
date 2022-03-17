@@ -16,33 +16,26 @@ const findRandomInteger = (min, max) => Math.floor(min + Math.random() * (max + 
 function App() {
   const [list, setList] = useState([]);
   useEffect(() => {
-    console.log('init')
     const newDefaultList = defaultList.map((it) => {
       const intervalId = setInterval(
         () => setText((prevValue) => (prevValue + it.value)), it.value * 1000)
-      console.log('init intervalId', intervalId)
       return ({
         ...it, intervalId
       })
     });
     setList(newDefaultList);
   }, [])
-  console.log(list)
   const [text, setText] = useState('')
   const onRemoveTile = (id) => {
-    console.log('onRemoveTile')
     setList((prevState) => {
       const arr = [...prevState];
-      console.log(arr)
       const index = arr.findIndex(it => id === it.id)
-      // console.log(arr, index, arr[index].intervalId)
       clearInterval(arr[index].intervalId);
       arr.splice(index, 1);
       return arr;
     })
   };
   const onClickAddTile = () => {
-    // console.log('onClickAddTile')
     const value = findRandomInteger(1, 5);
     const intervalId = setInterval(() => {
       setText((prevValue) => {
@@ -53,8 +46,6 @@ function App() {
       });
     }, value * 1000);
     setList((prevState) => {
-      // console.log('setList add')
-      // console.log(intervalId)
       return [...prevState, {value, id: nanoid(), intervalId}]
     });
   };
