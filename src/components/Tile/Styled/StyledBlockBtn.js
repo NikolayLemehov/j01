@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {TRANS_300} from "../../../variables";
 
 export const StyledBlockBtn = styled.div`
   position: absolute;
