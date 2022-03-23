@@ -9,16 +9,23 @@ const Title = styled.h1`
   text-align: center;
 `
 const maxTextLength = 1000;
-const defaultValueList = [4, 3];
+const defaultValueList = [2, 1];
 const defaultList = defaultValueList.map((it) => ({value: it, id: nanoid()}));
 const findRandomInteger = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
 
 function App() {
   const [list, setList] = useState([]);
+  const onSetTextInterval = (value) => {
+    setText((prevValue) => {
+      const valueLength = String(value).length;
+      return prevValue.length + valueLength <= maxTextLength
+        ? `${prevValue}${value}`
+        : `${prevValue.slice(valueLength)}${value}`;
+    });
+  };
   useEffect(() => {
     const newDefaultList = defaultList.map((it) => {
-      const intervalId = setInterval(
-        () => setText((prevValue) => (prevValue + it.value)), it.value * 1000)
+      const intervalId = setInterval(onSetTextInterval, it.value * 1000, it.value);
       return ({
         ...it, intervalId
       })
@@ -37,14 +44,7 @@ function App() {
   };
   const onClickAddTile = () => {
     const value = findRandomInteger(1, 5);
-    const intervalId = setInterval(() => {
-      setText((prevValue) => {
-        const valueLength = String(value).length;
-        return prevValue.length + valueLength <= maxTextLength
-          ? `${prevValue}${value}`
-          : `${prevValue.slice(valueLength)}${value}`;
-      });
-    }, value * 1000);
+    const intervalId = setInterval(onSetTextInterval, value * 1000, value);
     setList((prevState) => {
       return [...prevState, {value, id: nanoid(), intervalId}]
     });
