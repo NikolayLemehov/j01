@@ -9,12 +9,14 @@ const Title = styled.h1`
   text-align: center;
 `
 const maxTextLength = 1000;
-const defaultValueList = [2, 1];
+const defaultValueList = [];
 const defaultList = defaultValueList.map((it) => ({value: it, id: nanoid()}));
 const findRandomInteger = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
 
 function App() {
   const [list, setList] = useState([]);
+  const [text, setText] = useState('')
+
   const onSetTextInterval = (value) => {
     setText((prevValue) => {
       const valueLength = String(value).length;
@@ -32,7 +34,7 @@ function App() {
     });
     setList(newDefaultList);
   }, [])
-  const [text, setText] = useState('')
+
   const onRemoveTile = (id) => {
     setList((prevState) => {
       const arr = [...prevState];
