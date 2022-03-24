@@ -28,9 +28,7 @@ function App() {
   useEffect(() => {
     const newDefaultList = defaultList.map((it) => {
       const intervalId = setInterval(onSetTextInterval, it.value * 1000, it.value);
-      return ({
-        ...it, intervalId
-      })
+      return ({...it, intervalId})
     });
     setList(newDefaultList);
   }, [])
