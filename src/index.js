@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {createGlobalStyle} from "styled-components";
+import {DataProvider} from "./components/context/DataContext";
 
 const Global = createGlobalStyle`
 *,
@@ -30,7 +31,9 @@ ReactDOM.render(
   <>
     <Global/>
     <React.StrictMode>
-      <App/>
+      <DataProvider>
+        <App/>
+      </DataProvider>
     </React.StrictMode>
   </>,
   document.getElementById('root')
